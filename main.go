@@ -4,9 +4,9 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 	"github.com/astaxie/beego/orm"
-	"github.com/khlipeng/beego_api/controllers"
-	"github.com/khlipeng/beego_api/models"
-	_ "github.com/khlipeng/beego_api/routers"
+	"github.com/bigdata_api/controllers"
+	"github.com/bigdata_api/models"
+	_ "github.com/bigdata_api/routers"
 	"time"
 )
 

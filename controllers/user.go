@@ -4,11 +4,12 @@ import (
 	// "crypto"
 	"fmt"
 	"github.com/astaxie/beego/validation"
-	"github.com/khlipeng/beego_api/models"
-	"github.com/khlipeng/beego_api/utils"
+	"github.com/bigdata_api/models"
+	"github.com/bigdata_api/utils"
 	// "log"
 	"strings"
 	"time"
+	//"os/user"
 )
 
 var (
@@ -90,7 +91,8 @@ func (this *UserController) Registered() {
 func (this *UserController) Login() {
 	nickname := this.GetString("nickname")
 	password := this.GetString("password")
-
+	fmt.Println(nickname)
+	fmt.Println(password)
 	user, ok := models.CheckUserAuth(nickname, password)
 	if !ok {
 		this.Data["json"] = ErrNicknameOrPasswd
@@ -131,5 +133,22 @@ func (this *UserController) Auth() {
 	}
 
 	this.Data["json"] = Response{0, "success.", "is login"}
+	this.ServeJSON()
+}
+
+func (this *UserController) List() {
+	nickname := this.GetString("nickname")
+	fmt.Println(nickname)
+	ok := models.CheckUserNickname(nickname)
+	if !ok {
+		this.Data["json"] = ErrResponse{422004, "用户不存在"}
+		this.ServeJSON()
+		return
+	}
+
+
+	this.Data["json"] = Response{0, "success.", nickname}
+	//}
+
 	this.ServeJSON()
 }

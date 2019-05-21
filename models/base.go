@@ -22,7 +22,8 @@ func Init() {
 		appConf.String("database::db_name"),
 		appConf.String("database::db_charset"))
 	orm.RegisterDataBase("default", "mysql", conn)
-	orm.RegisterModel(new(User), new(Message), new(Keyword), new(TaskLog))
+	//orm.RegisterModel(new(User), new(Message), new(Keyword), new(TaskLog))
+	orm.RegisterModel(new(User), new(Message), new(Keyword))
 
 	//自动建表
 	name := "default"

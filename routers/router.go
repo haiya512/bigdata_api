@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/khlipeng/beego_api/controllers"
+	"github.com/bigdata_api/controllers"
 )
 
 // 使用注释路由
@@ -15,6 +15,12 @@ func init() {
 				&controllers.UserController{},
 			),
 		),
+		beego.NSNamespace("/message",
+			beego.NSInclude(
+				&controllers.MessageController{},
+			),
+		),
+
 	)
 	beego.AddNamespace(ns)
 }

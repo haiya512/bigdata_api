@@ -17,9 +17,9 @@ type User struct {
 func (u *User) TableName() string {
 	return TableName("user")
 }
-func init() {
-	orm.RegisterModel(new(User))
-}
+//func init() {
+//	orm.RegisterModel(new(User))
+//}
 func Users() orm.QuerySeter {
 	return orm.NewOrm().QueryTable(new(User))
 }

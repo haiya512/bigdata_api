@@ -17,8 +17,8 @@ type Keyword struct {
 	only_friends		bool
 	only_not_friends	bool
 	pushing				bool
-	user				string
-	token				string
+	User				string
+	Token				string
 }
 
 func (t *Keyword) TableName() string {
